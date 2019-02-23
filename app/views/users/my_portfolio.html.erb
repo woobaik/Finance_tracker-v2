@@ -1,1 +1,31 @@
-<h1>Hi</h1>
+<h1>My Portfolio</h1>
+
+<h3>Search for Stocks</h3>
+
+<div class="" id="stock-lookup">
+  <%= form_with url: search_stocks_path, local: true, method: :get, id: "stock-lookup-form" do |f| %>
+    <div class="form-group row no-padding text-center col-xs-12 custom-stock-search-form">
+      <div class="col-sm-9">
+        <%= f.text_field :stock, placeholder:"Stock Ticker Symbol", autofocus: true,
+                                               class:"form-control search-box input-lg" %>
+      </div>
+      <div class="col-sm-2">
+        <%= button_tag(type: :submit, class: "btn btn-lg btn-success") do %>
+          <i class="fa fa-search"></i> Look up a stock
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<% if @stock %>
+<div class="well results-block col-xs-12 text-center">
+  <strong>Symbol:</strong> <%= @stock.ticker %>
+  <strong>Symbol:</strong> <%= @stock.name %>
+  <strong>Symbol:</strong> <%= @stock.last_price %>
+</div>
+<% end %>
+
+
+
+<%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"col-xs-2" %>
