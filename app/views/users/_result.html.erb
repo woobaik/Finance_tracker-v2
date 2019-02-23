@@ -1,0 +1,15 @@
+<% if @stock %>
+<div class="well results-block col-xs-12 text-center">
+  <div class="row">
+    <div class="col-xs-9">
+      <strong>Symbol:</strong> <%= @stock.ticker %>
+      <strong>Symbol:</strong> <%= @stock.name %>
+      <strong>Symbol:</strong> <%= @stock.last_price %>
+    </div>
+    <div class="col-xs-3">
+      <button type="button" class="btn btn-info">Add</button>
+    </div>
+  </div>
+
+</div>
+<% end %>
