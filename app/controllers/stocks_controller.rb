@@ -9,15 +9,11 @@ class StocksController < ApplicationController
         end
       else
         flash.now[:error] = "We couldn't find the ticker you entered, please enter valid ticker"
-        respond_to do |format|
-          format.js {render partial: 'users/result'}
-        end
+        redirect_to my_portfolio_path
       end
     else
       flash.now[:error] = "Please enter valid input"
-      respond_to do |format|
-        format.js {render partial: 'users/result'}
-      end
+      redirect_to my_portfolio_path
     end
   end
 
