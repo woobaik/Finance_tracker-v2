@@ -1,3 +1,8 @@
+<% if params[:action] == 'search'  %>
+  <div class="search-notification text-center col-xs-12 ">
+    <%= bootstrap_flash %>
+  </div>
+<% end %>
 <% if @stock %>
 <div class="well results-block col-xs-12 text-center">
   <div class="row">
