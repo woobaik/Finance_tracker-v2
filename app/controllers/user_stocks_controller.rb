@@ -11,8 +11,9 @@ class UserStocksController < ApplicationController
   end
 
   def destroy
-    stock = UserStock.find_by_id(params[:id])
-    stock.destroy
+    stock = Stock.find_by_id(params[:id])
+    user_stock = UserStock.where(user_id: current_user, stock_id: stock.id).first
+    user_stock.destroy
     flash[:success] = "Your stock #{stock.name} has been deleted!"
     redirect_to my_portfolio_path
   end
