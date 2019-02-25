@@ -9,4 +9,11 @@ class UserStocksController < ApplicationController
     flash[:success] = "Your stock #{@user_stock.stock.name} has been saved!"
     redirect_to my_portfolio_path
   end
+
+  def destroy
+    stock = UserStock.find_by_id(params[:id])
+    stock.destroy
+    flash[:success] = "Your stock #{stock.name} has been deleted!"
+    redirect_to my_portfolio_path
+  end
 end

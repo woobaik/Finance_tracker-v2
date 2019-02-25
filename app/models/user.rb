@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   def already_added?(ticker)
     stock = Stock.find_by_ticker(ticker.upcase)
-    return true if stock && user_stocks.where(stock_id: stock.id)
+    return true if (stock && user_stocks.where(stock_id: stock.id).exists?)
     false
   end
 
@@ -18,7 +18,7 @@ class User < ApplicationRecord
   end
 
   def can_add_stock?(ticker)
-    already_added?(ticker) && under_stock_limit?
+    !(already_added?(ticker) && under_stock_limit?)
   end
 
 

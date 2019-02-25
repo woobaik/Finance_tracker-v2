@@ -12,8 +12,16 @@
       <strong>Symbol:</strong> <%= @stock.last_price %>
     </div>
     <div class="col-xs-3">
+      <% if current_user.can_add_stock?(@stock.ticker) %>
       <%= link_to "Add to my portfolio", user_stocks_path(user:current_user, stock_ticker: @stock.ticker),
                                          method: :post, class:"btn btn-xs btn-success" %>
+      <% elsif current_user.already_added?(@stock.ticker) %>
+        <%= link_to "Remove from my portfolio", user_stock_path(current_user.id),
+                                                method: :delete, class:"btn btn-xs btn-danger" %>
+      <% else %>
+        Hi
+      <% end %>
+
     </div>
   </div>
 
