@@ -45,6 +45,8 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'devise-bootstrap-views'
 # https://github.com/tyrauber/stock_quote
 gem "stock_quote", '~> 2.0.0'
+# https://github.com/bokmann/font-awesome-rails
+gem "font-awesome-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
