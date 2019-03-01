@@ -1,0 +1,30 @@
+<% if current_user.friends.any? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th colspan="3" class="page-header">
+          <h2>My Friends</h2>
+        </th>
+      </tr>
+      <tr>
+        <td><strong>Name</strong></td>
+        <td><strong>Email</strong></td>
+        <td><strong>Actions</strong></td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @my_friends.each do |friend| %>
+      <tr>
+        <td> <%= friend.full_name %></td>
+        <td> <%= friend.email %></td>
+        <td> <%= link_to "View Profile", user_path(freind), class: "btn btn-primary btn-xs" %>
+             <%= link_to "Remove Friendship", friendship_path(friend), class: "btn btn-danger btn-xs" %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h3>You don't have any friends yet, please add some! </h3>
+
+<% end %>
