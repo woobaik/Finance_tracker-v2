@@ -9,17 +9,16 @@
   <div class="row">
     <% @friends.each do |friend| %>
     <div class="col-xs-9">
-      <strong>email:</strong> <%= friend.email %>
-      <strong>full_name:</strong> <%= friend.full_name %>
+      <strong>E-mail :</strong> <%= friend.email %><br>
+      <strong>Name :</strong> <%= friend.full_name %><br>
+      <%= link_to "Profile", user_path(friend), class: 'btn btn-xs btn-success' %>
     </div>
     <div class="col-xs-3">
       <% if current_user.friends.include?(friend) %>
-        <!-- <%= link_to "Unfollow" %> -->
-        "UNFollow"
+         <%= link_to "UNFOLLOW", friendship_path(friend), method: :delete %>
       <% else %>
-        <!-- <%= link_to "Follow", user_stocks_path(user:current_user, stock_ticker: @stock.ticker),
-                                         method: :post, class:"btn btn-xs btn-success" %> -->
-        "FOLLOW"
+         <%= link_to "Follow", add_friend_path(user_id: current_user.id, friend_id: friend.id),
+                               method: :post%>
       <% end %>
     </div>
     <% end %>

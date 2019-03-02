@@ -37,5 +37,9 @@ class User < ApplicationRecord
     univ_user
   end
 
+  def exept_current_user(users)
+    users.reject {|user| user.id == self.id}
+  end
+
 
 end
