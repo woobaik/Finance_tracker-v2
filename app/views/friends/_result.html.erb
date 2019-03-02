@@ -1,0 +1,28 @@
+<% if params[:action] == 'search'  %>
+  <div class="search-notification text-center col-xs-12 ">
+    <%= bootstrap_flash %>
+  </div>
+<% end %>
+
+<% if @friends %>
+<div class="well results-block col-xs-12 text-center">
+  <div class="row">
+    <% @friends.each do |friend| %>
+    <div class="col-xs-9">
+      <strong>email:</strong> <%= friend.email %>
+      <strong>full_name:</strong> <%= friend.full_name %>
+    </div>
+    <div class="col-xs-3">
+      <% if current_user.friends.include?(friend) %>
+        <!-- <%= link_to "Unfollow" %> -->
+        "UNFollow"
+      <% else %>
+        <!-- <%= link_to "Follow", user_stocks_path(user:current_user, stock_ticker: @stock.ticker),
+                                         method: :post, class:"btn btn-xs btn-success" %> -->
+        "FOLLOW"
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<% end %>

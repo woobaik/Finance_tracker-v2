@@ -30,7 +30,7 @@ class User < ApplicationRecord
   end
 
   def self.universe_user_search(params)
-
+    params = params.strip.downcase
     univ_user = User.where('first_name LIKE ?', "%#{params}%")
                     .or(User.where('last_name LIKE ?', "%#{params}%"))
                     .or(User.where('email LIKE ?', "%#{params}%"))
