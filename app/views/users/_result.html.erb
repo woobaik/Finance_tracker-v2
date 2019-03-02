@@ -8,8 +8,8 @@
   <div class="row">
     <div class="col-xs-9">
       <strong>Symbol:</strong> <%= @stock.ticker %>
-      <strong>Symbol:</strong> <%= @stock.name %>
-      <strong>Symbol:</strong> <%= @stock.last_price %>
+      <strong>Name:</strong> <%= @stock.name %>
+      <strong>Price:</strong> <%= @stock.last_price %>
     </div>
     <div class="col-xs-3">
       <% if current_user.can_add_stock?(@stock.ticker) %>
