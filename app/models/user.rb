@@ -29,5 +29,13 @@ class User < ApplicationRecord
     "Anonymous"
   end
 
+  def self.universe_user_search(params)
+
+    univ_user = User.where('first_name LIKE ?', "%#{params}%")
+                    .or(User.where('last_name LIKE ?', "%#{params}%"))
+                    .or(User.where('email LIKE ?', "%#{params}%"))
+    univ_user
+  end
+
 
 end

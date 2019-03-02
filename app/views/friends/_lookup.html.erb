@@ -1,0 +1,17 @@
+<h3>Search for Friends</h3>
+<%= flash[:error] if flash[:error] %>
+<div class="" id="friends-lookup">
+  <%= form_with url: search_friends_path, method: :get, id: "friends-lookup-form" do |f| %>
+    <div class="form-group row no-padding text-center col-xs-12 custom-Friends-search-form">
+      <div class="col-sm-9">
+        <%= f.text_field :user_finder, placeholder:"Search Friend", autofocus: true,
+                                               class:"form-control search-box input-lg" %>
+      </div>
+      <div class="col-sm-2">
+        <%= button_tag(type: :submit, class: "btn btn-lg btn-success") do %>
+          <i class="fa fa-search"></i> Look Up a Friend
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -6,4 +6,10 @@ class UsersController < ApplicationController
   def my_friends
     @friendships = current_user.friends
   end
+
+  def search
+    @friends = User.universe_user_search(params[:user_finder])
+    puts @friends
+    render json: @friends
+  end
 end
