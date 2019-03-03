@@ -23,7 +23,7 @@
         <td> <%= friend.email %></td>
         <td>
           <%= link_to 'View Profile', user_path(friend), class: "btn btn-xs btn-success" %>
-          <%= link_to "Delete Friend", friendship_path(friend),
+          <%= link_to "Delete Friend", friendship_path(friend.id),
                             class: "btn btn-xs btn-danger", method: :delete,
                             data: {confirm: "Are You Sure?"}   %>
         </td>
