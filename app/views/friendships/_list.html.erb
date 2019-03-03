@@ -17,7 +17,7 @@
       <tr>
         <td> <%= friend.full_name %></td>
         <td> <%= friend.email %></td>
-        <td> <%= link_to "View Profile", user_path(freind), class: "btn btn-primary btn-xs" %>
+        <td> <%= link_to "View Profile", user_path(freind.id), class: "btn btn-primary btn-xs" %>
              <%= link_to "Remove Friendship", friendship_path(friend), class: "btn btn-danger btn-xs" %>
         </td>
       </tr>
